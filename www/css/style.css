@@ -5,7 +5,7 @@ html{
 body {
         background-color: #D9A3D3;  
         background-image: url('../../assets/Ellipse\ 1.png'),  url('../../assets/Ellipse\ 2.png');
-        background-size: 50%;
+        background-size: 30%;
         background-repeat: no-repeat;
         background-position-y: bottom, top;
         background-position-x: left, right;
@@ -33,8 +33,6 @@ h1{
 
 #icon-apple{
     height: 100%;
-    margin-top: 50px;
-    margin-bottom: 50px;
 }
 
 .btn-primary{
@@ -46,12 +44,45 @@ h1{
 }
 
 section{
-    margin-top: 50px;
+    margin-top: 33px;
     margin-bottom: 50px;
 }
 
 footer{
     margin-bottom: 50px;
+}
+
+.card img{
+    padding: 10px;
+    width: 100%;
+}
+
+.card{
+    color: #D0004B;
+    border-radius: 15px;
+}
+
+.card h5{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#conteudo-card{
+    padding: 0;
+}
+
+input{
+    margin:10px
+}
+
+label{
+    color: #D0004B;
+    margin:10px;
+    font-weight: bold;
+}
+
+.g-signin2{
+    margin-left: 10px;
 }
 
 
