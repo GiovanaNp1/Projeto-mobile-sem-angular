@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/earlyaccess/khyay.css);
+
 html{
     height: 100%;
 }
@@ -12,6 +14,7 @@ body {
         text-align: center;
         color: white;
         font-size: 20px;
+        font-family: 'Khyay', sans-serif;
 }
 
 h1{
@@ -39,8 +42,9 @@ h1{
     background-color: #D0004B;
     border-color: #D0004B;
     color: white;
-    border-radius: 30px;
+    border-radius: 15px;
     margin: 5px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 section{
@@ -54,7 +58,7 @@ footer{
 
 .card img{
     padding: 10px;
-    width: 100%;
+    width: 100px;
 }
 
 .card{
@@ -78,12 +82,21 @@ input{
 label{
     color: #D0004B;
     margin:10px;
-    font-weight: bold;
 }
 
 .g-signin2{
     margin-left: 10px;
 }
+
+.others-login{
+    display: flex;
+    justify-content: space-around;
+}
+
+#spinner{
+    margin-top: 5px;
+}
+
 
 
 

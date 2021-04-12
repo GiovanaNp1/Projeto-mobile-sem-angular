@@ -1,0 +1,32 @@
+@import url(http://fonts.googleapis.com/earlyaccess/khyay.css);
+
+body{
+    background: linear-gradient(180deg, rgba(217, 163, 211, 0.5) 0%, #FFFFFF 100%), #C4C4C4;
+    text-align: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Khyay', sans-serif;
+}
+
+.card{
+    flex-direction: row;
+    margin: 15px;
+    border-radius: 15px;
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.card img{
+    height: 100px;
+}
+
+h1{
+    margin: 20px
+}
+
+.card-verde{
+    background-color: #BFF9B0;
+    border: solid 3px #21A401;
+}

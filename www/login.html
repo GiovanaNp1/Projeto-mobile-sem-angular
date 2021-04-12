@@ -12,9 +12,35 @@
     <link rel="stylesheet" href="components/loader.css">
     <link rel="stylesheet" href="css/style.css">
     <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <meta name="google-signin-client_id"
+        content="60909689514-bq65idbp5r0dd8isg0g4suitb345sk2l.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v10.0&appId=3768149686603002&autoLogAppEvents=1"
+        nonce="JXhTQGpB"></script>
     <script src="./script.js">
+    </script>
+
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '279711740380586',
+                cookie: true,
+                xfbml: true,
+                version: 'v10.0'
+            });
+
+            FB.AppEvents.logPageView();
+
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
     </script>
 </head>
 
@@ -25,7 +51,9 @@
             <div class="row justify-content-around">
                 <div class="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2">
                     <div class="card">
-                        <img class="card-img-top" src="./assets/image 1.svg" alt="Professor">
+                        <div class="img-center">
+                            <img class="card-img-top" src="./assets/image 1.svg" alt="Professor">
+                        </div>
                         <div id="conteudo-card" class="card-body">
                             <h5 class="card-title">Professor</h5>
                         </div>
@@ -33,7 +61,9 @@
                 </div>
                 <div class="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2">
                     <div class="card">
-                        <img class="card-img-top" src="./assets/family 1.svg" alt="Pais">
+                        <div class="img-center">
+                            <img class="card-img-top" src="./assets/family 1.svg" alt="Pais">
+                        </div>
                         <div id="conteudo-card" class="card-body">
                             <h5 class="card-title">Pais</h5>
                         </div>
@@ -52,17 +82,10 @@
                 <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                     placeholder="Enter email">
             </div>
-            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="ligth"></div>
-            <div id="spinner" style="
-                background: #4267b2;
-                border-radius: 5px;
-                color: white;
-                height: 40px;
-                text-align: center;
-                width: 250px;">
-                Loading
-                <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with"
-                    data-use-continue-as="true"></div>
+            <div class="others-login">
+                <div class="g-signin2" data-onsuccess="onSignIn" data-theme="ligth"></div>
+
+                <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
             </div>
         </section>
     </div>
