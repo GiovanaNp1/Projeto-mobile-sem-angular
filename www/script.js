@@ -22,7 +22,7 @@ function onSignIn(googleUser) {
         // The ID token you need to pass to your backend:
         id_token= googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
-        // window.location.replace("./dashboard.html");
+        window.location.replace("./dashboard.html");
     }
 }
 

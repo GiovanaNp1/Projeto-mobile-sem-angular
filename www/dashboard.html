@@ -12,6 +12,14 @@
     <meta name="google-signin-client_id"
         content="60909689514-bq65idbp5r0dd8isg0g4suitb345sk2l.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
     <title>DashBoard</title>
     <script src="./dashboard.js"></script>
 </head>
@@ -58,7 +66,22 @@
                 </div>
             </div>
         </div>
-    </section>
-</body>
+        <div id="entries" class="row">
 
+        </div>
+    </section>
+    <div class="navbar">
+        <div>
+            <img src="./assets/idea 1.svg" alt="Atividades Icon">
+            <p>Atividade</p>
+        </div>
+        <div>
+            <img src="./assets/Group 19.svg" onClick="addNewActivity()" alt="Atividades Icon">
+        </div>
+        <div>
+            <img src="./assets/chat 1.svg" alt="Atividades Icon">
+            <p>Atividade</p>
+        </div>
+    </div>
+</body>
 </html>
