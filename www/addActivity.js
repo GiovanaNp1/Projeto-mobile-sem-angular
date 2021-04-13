@@ -13,35 +13,33 @@ var firebaseConfig = {
     messagingSenderId: "325541971390",
     appId: "1:325541971390:web:b5cf707b6ddef039e1a5ef"
   };
+  firebase.initializeApp(firebaseConfig);
   // Initialize Firebase
+
+  console.log(localStorage.getItem('email'))
 
   function createActivity() {
       /***************************************************\
        * Process form data and save to Firebase database *
       \***************************************************/
-      
-      $('#new_entry').submit(function(e){
-          e.preventDefault();
           
           var entry = {};
           entry.materia = document.getElementById("materia").value
           entry.data = document.getElementById("date-activity").value
           entry.descricao = document.getElementById("descricao").value
-          entry.updatedAt = new Date.now();
-          entry.views = 0;
+          entry.updatedAt = Date.now();
+          entry.tipo = document.getElementById("tipo").value;
           entry.author = localStorage.getItem('email');
 
+           var Entry = firebase.database().ref('activity/');
           
-          var Entry = firebase.database().ref('Entry');
-          
-          Entry.push(entry).then(function(data){
-              window.location.replace("./dashboard.html")
-          }).catch(function(error){
-              alert(error);
-              console.error(error);
-          })
+           Entry.push(entry).then(function(data){
+               window.location.replace("./dashboard.html")
+           }).catch(function(error){
+               alert(error);
+               console.error(error);
+           })
           
           return false;
-      });
   }
 
