@@ -1,11 +1,11 @@
 console.log(localStorage.getItem('Email'))
 
-localStorage.setItem("Full Name",localStorage.getItem("Full Name"));
-localStorage.setItem("ID",localStorage.getItem("ID"));
-localStorage.setItem("Given Name",localStorage.getItem("Given Name"));
-localStorage.setItem("Family Name",localStorage.getItem("Family Name"));
-localStorage.setItem("Image URL",localStorage.getItem("Image URL"));
-localStorage.setItem("Email",localStorage.getItem("Email"));
+// localStorage.setItem("Full Name",localStorage.getItem("Full Name"));
+// localStorage.setItem("ID",localStorage.getItem("ID"));
+// localStorage.setItem("Given Name",localStorage.getItem("Given Name"));
+// localStorage.setItem("Family Name",localStorage.getItem("Family Name"));
+// localStorage.setItem("Image URL",localStorage.getItem("Image URL"));
+// localStorage.setItem("Email",localStorage.getItem("Email"));
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -34,6 +34,10 @@ function getMateria(params) {
     }
 }
 
+function editThisActivity(params) {
+    console.log(params)
+}
+
 var Blog = firebase.database().ref('activity').orderByChild('updatedAt');
 
 Blog.on('value', function (r) {
@@ -42,10 +46,10 @@ Blog.on('value', function (r) {
     var html = '';
     r.forEach(function (item) {
         entry = item.val()
-        html = '<div class="card card-verde">' +
+        html = '<div class="card card-verde" onClick="' + editThisActivity(item.getKey()) + '">' +
             '<img class="card-img-top" src="' + getImage(entry.materia) + '" alt="Card image cap">' +
             '<div class="card-body">' +
-            '<h5 class="card-title">' + getMateria(entry.materia) + '</h5>' + + 
+            '<h5 class="card-title">' + getMateria(entry.materia) + ' | ' + excerpt(entry.data) + '</h5>' +
             '<p class="card-text">' + excerpt(entry.descricao, 140) + '</p>' +
             '</div>' +
             '</div>' + html; // prepend the entry because we need to display it in reverse order
@@ -54,7 +58,6 @@ Blog.on('value', function (r) {
 
     $('#entries').html(html);
 });
-
 
 /*************\
  * Utilities *

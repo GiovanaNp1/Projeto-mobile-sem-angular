@@ -1,4 +1,3 @@
-
 function goToActivity() {
     window.location.replace("./dashboard.html");
 }
@@ -16,7 +15,7 @@ var firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
   // Initialize Firebase
 
-  console.log(localStorage.getItem('email'))
+  console.log(localStorage.getItem('Email'))
 
   function createActivity() {
       /***************************************************\
@@ -29,14 +28,15 @@ var firebaseConfig = {
           entry.descricao = document.getElementById("descricao").value
           entry.updatedAt = Date.now();
           entry.tipo = document.getElementById("tipo").value;
-          entry.author = localStorage.getItem('email');
+          entry.author = localStorage.getItem('Email');
 
            var Entry = firebase.database().ref('activity/');
           
            Entry.push(entry).then(function(data){
+                $('.alert').alert()
                window.location.replace("./dashboard.html")
            }).catch(function(error){
-               alert(error);
+               $('.alert').alert()
                console.error(error);
            })
           

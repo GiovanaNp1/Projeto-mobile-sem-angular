@@ -12,6 +12,7 @@ body{
 .card{
     flex-direction: row;
     margin: 15px;
+    margin-left: 0px;
     border-radius: 15px;
     align-items: center;
     box-sizing: border-box;
