@@ -46,13 +46,15 @@ Blog.on('value', function (r) {
     var html = '';
     r.forEach(function (item) {
         entry = item.val()
-        html = '<div class="card card-verde" onClick="' + editThisActivity(item.getKey()) + '">' +
+        html = '<a href="editActivity.html?id=' + item.getKey() + '" style="text-decoration:none!important; color:black">' +
+            '<div class="card card-verde">' +
             '<img class="card-img-top" src="' + getImage(entry.materia) + '" alt="Card image cap">' +
             '<div class="card-body">' +
             '<h5 class="card-title">' + getMateria(entry.materia) + ' | ' + excerpt(entry.data) + '</h5>' +
             '<p class="card-text">' + excerpt(entry.descricao, 140) + '</p>' +
             '</div>' +
-            '</div>' + html; // prepend the entry because we need to display it in reverse order
+            '</div>' +
+            '</a>' +  html; // prepend the entry because we need to display it in reverse order
     });
 
 
