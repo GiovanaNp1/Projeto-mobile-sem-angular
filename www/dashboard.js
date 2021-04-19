@@ -59,6 +59,8 @@ Blog.on('value', function (r) {
 
 
     $('#entries').html(html);
+    var element = document.getElementById("teste");
+    element.classList.add("loadingFalse");
 });
 
 /*************\

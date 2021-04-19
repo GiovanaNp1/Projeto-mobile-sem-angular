@@ -26,17 +26,15 @@ var firebaseConfig = {
           entry.materia = document.getElementById("materia").value
           entry.data = document.getElementById("date-activity").value
           entry.descricao = document.getElementById("descricao").value
-          entry.updatedAt = Date.now();
+          entry.updatedAt = new Date().getTime();
           entry.tipo = document.getElementById("tipo").value;
           entry.author = localStorage.getItem('Email');
 
            var Entry = firebase.database().ref('activity/');
           
            Entry.push(entry).then(function(data){
-                $('.alert').alert()
                window.location.replace("./dashboard.html")
            }).catch(function(error){
-               $('.alert').alert()
                console.error(error);
            })
           

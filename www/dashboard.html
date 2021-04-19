@@ -12,6 +12,7 @@
     <meta name="google-signin-client_id"
         content="60909689514-bq65idbp5r0dd8isg0g4suitb345sk2l.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link rel="shortcut icon" href="./assets/imgs/icon_apple.svg" >
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
@@ -22,14 +23,30 @@
      https://firebase.google.com/docs/web/setup#available-libraries -->
     <title>DashBoard</title>
     <script src="./dashboard.js"></script>
+    <script src="./notificação.js"></script>
 </head>
 
 <body>
     <div class="container">
         <h1>Dashboards Atividades</h1>
-        <p id="demo"></p>
     </div>
     <section>
+        <div class="alert alert-success loadingFalse" role="alert">
+            This is a success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+          </div>
+          <div class="alert alert-danger loadingFalse" role="alert">
+            This is a danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+          </div>
+          <div class="alert alert-warning loadingFalse" role="alert">
+            This is a warning alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+          </div>
+        <div id="teste">
+            <div class="d-flex justify-content-center">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only"></span>
+                </div>
+            </div>
+        </div>
         <div class="row" style="display: flex; justify-content: center;">
             <div id="entries" class="row col-11 col-lg-6">
             </div>
@@ -47,7 +64,7 @@
         </div>
         <div>
             <img src="./assets/chat 1.svg" alt="Atividades Icon">
-            <p>Atividade</p>
+            <p>Comentarios</p>
         </div>
     </div>
 </body>

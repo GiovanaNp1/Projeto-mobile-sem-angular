@@ -3,6 +3,10 @@ function test(){
     window.location.replace("./login.html");
 }
 
+function RedirecionarCadastro() {
+  window.location.replace("./cadastrar.html");
+}
+
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     var id_token = ''

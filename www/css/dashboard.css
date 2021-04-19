@@ -62,3 +62,7 @@ label{
     border: 0px;
     border-radius: 15px;
 }
+
+.loadingFalse{
+    display: none;
+}

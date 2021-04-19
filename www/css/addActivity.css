@@ -81,7 +81,23 @@ label{
     color: white;
     border-radius: 15px;
     margin: 5px;
+    font-weight: bold;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.btn-danger{
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+.btn-ligth{
+    background-color: white;
+    border-color: white;
+    color: #D0004B;
+    border-radius: 15px;
+    margin: 5px;
+    font-weight: bold;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));  
 }
 
 .btn-primary:hover{
@@ -105,4 +121,26 @@ label{
     justify-content: space-around;
     color:  #D0004B;
     font-size: 14px;
+}
+
+.spinner-border{
+    position: absolute;
+    top: 150px;
+}
+
+.loadingFalse{
+    display: none;
+}
+
+.close{
+    background: none;
+    border: 0;
+}
+
+.btn-secondary{
+    border-radius: 15px;
+}
+
+.confirmPassword{
+    text-align: start;
 }
