@@ -147,3 +147,6 @@ label{
     border-style: solid;
     border-color: #dc3545;
 }
+.form-select{
+    border: 0;
+}
