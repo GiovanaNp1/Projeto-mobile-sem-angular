@@ -1,3 +1,9 @@
+const login = {
+  email: '',
+  senha: '',
+  acesso: ''
+}
+
 function test(){
     console.log("olá mundo")
     window.location.replace("./login.html");
@@ -30,20 +36,48 @@ function onSignIn(googleUser) {
     }
 }
 
-FB.login(function(response){
-    console.log(response)
-  });
+ FB.login(function(response){
+     console.log(response)
+   });
 
-function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-    console.log(response)
-      statusChangeCallback(response);
-    });
+ function checkLoginState() {
+     FB.getLoginStatus(function(response) {
+     console.log(response)
+       statusChangeCallback(response);
+     });
+   }
+
+
+   FB.getLoginStatus(function(response) {
+       console.log(response)
+     statusChangeCallback(response);
+ });
+ 
+function setAcesso(tipo) {
+  if(tipo === 'prof'){
+    document.getElementById('acesso-prof').classList.add('acesso_select')
+    login.acesso = 'Professor'
+    document.getElementById('acesso-pais').classList.remove('acesso_select')
+  } else{
+    document.getElementById('acesso-pais').classList.add('acesso_select')
+    login.acesso = 'Pais'
+    document.getElementById('acesso-prof').classList.remove('acesso_select')
   }
+}
 
-
-  FB.getLoginStatus(function(response) {
-      console.log(response)
-    statusChangeCallback(response);
-});
-
+function loginDB() {
+  var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+  login.email = document.getElementById('email').value
+  login.senha = document.getElementById('password').value
+  if(login.senha !== "" && login.email !== "" && login.acesso !== ""){
+    console.log(login)
+    var rows;
+    db.transaction(function(tx) {
+      tx.executeSql(`SELECT * FROM CADASTRO WHERE email='${login.email}' AND senha='${login.senha}' AND acesso='${login.acesso}'`, [], function(sqlTransaction, sqlResultSet) {
+        rows = sqlResultSet.rows;
+        console.log(rows)
+      });
+    })
+    console.log('SELECT * FROM CADASTRO WHERE email="' + login.email + '" AND senha="' + login.senha + '" AND acesso="' +  login.acesso +  '"')
+  }
+}

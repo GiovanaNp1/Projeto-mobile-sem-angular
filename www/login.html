@@ -16,32 +16,29 @@
     <meta name="google-signin-client_id"
         content="60909689514-bq65idbp5r0dd8isg0g4suitb345sk2l.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script async defer crossorigin="anonymous"
-        src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v10.0&appId=3768149686603002&autoLogAppEvents=1"
-        nonce="JXhTQGpB"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v10.0&appId=3768149686603002&autoLogAppEvents=1" nonce="JXhTQGpB"></script>
+        <script>
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '279711740380586',
+                    cookie: true,
+                    xfbml: true,
+                    version: 'v10.0'
+                });
+    
+                FB.AppEvents.logPageView();
+    
+            };
+    
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) { return; }
+                js = d.createElement(s); js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
     <script src="./script.js">
-    </script>
-
-    <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: '279711740380586',
-                cookie: true,
-                xfbml: true,
-                version: 'v10.0'
-            });
-
-            FB.AppEvents.logPageView();
-
-        };
-
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) { return; }
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
     </script>
 </head>
 
@@ -51,7 +48,7 @@
         <section>
             <div class="row justify-content-around">
                 <div class="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2">
-                    <div class="card">
+                    <div class="card"  id="acesso-prof" onclick="setAcesso('prof')">
                         <div class="img-center">
                             <img class="card-img-top" src="./assets/image 1.svg" alt="Professor">
                         </div>
@@ -61,7 +58,7 @@
                     </div>
                 </div>
                 <div class="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-2">
-                    <div class="card">
+                    <div class="card" id="acesso-pais" onclick="setAcesso('pais')">
                         <div class="img-center">
                             <img class="card-img-top" src="./assets/family 1.svg" alt="Pais">
                         </div>
@@ -74,14 +71,14 @@
         <section>
             <h2>Faça seu login</h2>
             <div class="form-group" style="display:flex; justify-content: space-around;">
-                <label for="exampleInputEmail1">Email: </label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                <label for="email">Email: </label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
                     placeholder="Enter email">
             </div>
             <div class="form-group" style="display:flex; justify-content: space-around;">
-                <label for="exampleInputEmail1">Senha:</label>
-                <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="Enter email">
+                <label for="password">Senha:</label>
+                <input type="password" class="form-control" id="password" aria-describedby="emailHelp"
+                    placeholder="Enter password">
             </div>
             <div class="others-login">
                 <div class="g-signin2" data-onsuccess="onSignIn" data-theme="ligth"></div>
@@ -91,7 +88,7 @@
             <div>
                 <div class="align-items-center" style="display: flex; flex-direction: column; margin:10px">
                     <a href="./cadastro.html">Esqueceu a senha? clica aqui</a>
-                    <button type="button" class="btn btn-primary btn-lg col-xl-4 col-10">Entrar</button>
+                    <button type="button" class="btn btn-primary btn-lg col-xl-4 col-10" id='btn-entrar' onclick="loginDB()">Entrar</button>
                 </div>
             </div>
         </section>

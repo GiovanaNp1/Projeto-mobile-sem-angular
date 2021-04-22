@@ -12,22 +12,26 @@ function confirmarSenhas(params) {
     var todoEmail = document.getElementById("email");
     var todoNome = document.getElementById("nome");
     var todoAcesso = document.getElementById("acesso");
-    if(todo.value != todo2.value) { 
-      todo2.classList.add("is-invalid");
-      document.getElementById("invalid-feedback").style.display = "flex";
-      document.getElementById("password-again-formgroup").classList.add("form-group-invalid")
-    }else if(todoEmail.value === '' || todoNome.value === '' || todoAcesso.value === '' || todo.value === ''){
-      console.log('Entro aqui')
-      confirmarInputs(todoEmail, todoNome, todo, todoAcesso)
-    }
-    else{
-      console.log("Funfou")
-      dadosCadastro.nome = todoNome.value
-      dadosCadastro.email = todoEmail.value
-      dadosCadastro.senha = todo.value
-      dadosCadastro.acesso = todoAcesso.value
-      cadastrarUsuario()
-    }
+      if(todo.value != todo2.value) { 
+        todo2.classList.add("is-invalid");
+        document.getElementById("invalid-feedback").style.display = "flex";
+        document.getElementById("password-again-formgroup").classList.add("form-group-invalid")
+      }else if(todoEmail.value === '' || todoNome.value === '' || todoAcesso.value === '' || todo.value === ''){
+        console.log('Entro aqui')
+        confirmarInputs(todoEmail, todoNome, todo, todoAcesso)
+      }
+      else{
+        console.log("Funfou")
+        dadosCadastro.nome = todoNome.value
+        if(todoAcesso == 1){
+          dadosCadastro.acesso = 'Professor'
+        }else{
+          dadosCadastro.acesso = 'Pais'
+        }
+        dadosCadastro.email = todoEmail.value
+        dadosCadastro.senha = todo.value
+        cadastrarUsuario()
+      }
 }
 
 function confirmarInputs(todoEmail, todoNome, todo, todoAcesso) {
@@ -71,10 +75,11 @@ function confirmarInputs(todoEmail, todoNome, todo, todoAcesso) {
 }
 
 function cadastrarUsuario(params) {
-  // var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
-  // db.transaction(function (tx) {
-  //    tx.executeSql('CREATE TABLE IF NOT EXISTS CADASTRO (nome, email, senha, acesso)');
-  //    tx.executeSql('INSERT INTO CADASTRO (nome, email, senha, acesso) VALUES (?,?,?,?)', 
-  //    [dadosCadastro.nome, dadosCadastro.email, dadosCadastro.senha, dadosCadastro.acesso]);
-  // });
+    var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+    db.transaction(function (tx) {
+      tx.executeSql('CREATE TABLE IF NOT EXISTS CADASTRO (nome, email, senha, acesso)');
+      tx.executeSql('INSERT INTO CADASTRO (nome, email, senha, acesso) VALUES (?,?,?,?)', 
+      [dadosCadastro.nome, dadosCadastro.email, dadosCadastro.senha, dadosCadastro.acesso]);
+    });
+    window.location.replace("./index.html");
 };
