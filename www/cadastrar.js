@@ -21,13 +21,13 @@ function confirmarSenhas(params) {
         confirmarInputs(todoEmail, todoNome, todo, todoAcesso)
       }
       else{
-        console.log("Funfou")
         dadosCadastro.nome = todoNome.value
-        if(todoAcesso == 1){
+        if(todoAcesso.value == 1){
           dadosCadastro.acesso = 'Professor'
         }else{
           dadosCadastro.acesso = 'Pais'
         }
+        console.log(dadosCadastro.acesso)
         dadosCadastro.email = todoEmail.value
         dadosCadastro.senha = todo.value
         cadastrarUsuario()

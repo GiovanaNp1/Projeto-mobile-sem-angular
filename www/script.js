@@ -32,26 +32,9 @@ function onSignIn(googleUser) {
         // The ID token you need to pass to your backend:
         id_token= googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
-        window.location.replace("./dashboard.html");
+        // window.location.replace("./dashboard.html");
     }
 }
-
- FB.login(function(response){
-     console.log(response)
-   });
-
- function checkLoginState() {
-     FB.getLoginStatus(function(response) {
-     console.log(response)
-       statusChangeCallback(response);
-     });
-   }
-
-
-   FB.getLoginStatus(function(response) {
-       console.log(response)
-     statusChangeCallback(response);
- });
  
 function setAcesso(tipo) {
   if(tipo === 'prof'){
@@ -68,6 +51,8 @@ function setAcesso(tipo) {
 function loginDB() {
   var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
   login.email = document.getElementById('email').value
+  console.log(login.email)
+  console.log(login.senha)
   login.senha = document.getElementById('password').value
   if(login.senha !== "" && login.email !== "" && login.acesso !== ""){
     console.log(login)
@@ -76,6 +61,9 @@ function loginDB() {
       tx.executeSql(`SELECT * FROM CADASTRO WHERE email='${login.email}' AND senha='${login.senha}' AND acesso='${login.acesso}'`, [], function(sqlTransaction, sqlResultSet) {
         rows = sqlResultSet.rows;
         console.log(rows)
+        if(rows.length > 0){
+          window.location.replace("./dashboard.html")
+        }
       });
     })
     console.log('SELECT * FROM CADASTRO WHERE email="' + login.email + '" AND senha="' + login.senha + '" AND acesso="' +  login.acesso +  '"')
