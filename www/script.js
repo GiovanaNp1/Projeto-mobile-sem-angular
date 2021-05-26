@@ -32,7 +32,7 @@ function onSignIn(googleUser) {
         // The ID token you need to pass to your backend:
         id_token= googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
-        // window.location.replace("./dashboard.html");
+        window.location.replace("./dashboard.html");
     }
 }
  
@@ -60,8 +60,10 @@ function loginDB() {
     db.transaction(function(tx) {
       tx.executeSql(`SELECT * FROM CADASTRO WHERE email='${login.email}' AND senha='${login.senha}' AND acesso='${login.acesso}'`, [], function(sqlTransaction, sqlResultSet) {
         rows = sqlResultSet.rows;
-        console.log(rows)
+        console.log(rows[0])
         if(rows.length > 0){
+          localStorage.setItem("Full Name",  rows[0].nome);
+          localStorage.setItem("Email",  rows[0].nome);
           window.location.replace("./dashboard.html")
         }
       });
